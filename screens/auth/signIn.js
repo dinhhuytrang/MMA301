@@ -1,33 +1,56 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { signIn } from '../../services/Authentication'; 
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
+const LoginScreen = () => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const navigation = useNavigation();
 
+  const handleLogin = async () => {
+    try {
+      console.log('Logging in with:', { username, password });
+      const response = await signIn(username, password);
+      console.log('API response:', response.data);
+  
+      const { data } = response;
+      await AsyncStorage.setItem('isLoggedIn', 'true');
+      await AsyncStorage.setItem('userToken', data.token);
+  
+      if (data.role === 'USER') {
+        navigation.navigate('Home');
+      } else if (data.role === 'ADMIN') {
+        navigation.navigate('Admin');
+      }
+    } catch (error) {
+      console.log('Login error:', error.response?.data || error.message);
+      Alert.alert('Login Failed', 'Please check your username and password.');
+    }
+  };
   return (
     <View style={styles.container}>
       {/* Top section with black background, white text, and logo */}
       <View style={styles.topSection}>
-      <Image 
-        source={{ uri: 'https://www.tennis-point.co.uk/on/demandware.static/-/Library-Sites-TennisPoint/en_GB/dwef851813/webflow/16227/images/Performance_Logo_BWr.png' }} 
-        style={styles.logo} 
-      />
+        <Image 
+          source={{ uri: 'https://www.tennis-point.co.uk/on/demandware.static/-/Library-Sites-TennisPoint/en_GB/dwef851813/webflow/16227/images/Performance_Logo_BWr.png' }} 
+          style={styles.logo} 
+        />
         <Text style={styles.title}>Log In</Text>
         <Text style={styles.subTitle}>Please sign in to your existing account</Text>
       </View>
 
       {/* Bottom section with white background and rounded top corners */}
       <View style={styles.bottomSection}>
-        <Text style={styles.label}>EMAIL</Text>
+        <Text style={styles.label}>UserName</Text>
         <TextInput
           style={styles.input}
-          placeholder="example@gmail.com"
+          placeholder="Enter your username"
           placeholderTextColor="#B0B0B0"
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
+          value={username}
+          onChangeText={setUsername}
         />
 
         <Text style={styles.label}>PASSWORD</Text>
@@ -40,9 +63,6 @@ const LoginScreen = ({ navigation }) => {
             value={password}
             onChangeText={setPassword}
           />
-          <TouchableOpacity style={styles.eyeIcon}>
-            {/* Add an eye icon component or image here */}
-          </TouchableOpacity>
         </View>
 
         <View style={styles.optionsContainer}>
@@ -55,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
           <Text style={styles.loginButtonText}>LOG IN</Text>
         </TouchableOpacity>
 

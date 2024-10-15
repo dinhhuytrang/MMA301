@@ -115,15 +115,24 @@ export default function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(true); // Giả lập đã đăng nhập thành công
 
  
+  // useEffect(() => {
+  //   const checkLoginStatus = async () => {
+  //     const loggedIn = await AsyncStorage.getItem('isLoggedIn');
+  //     setIsLoggedIn(loggedIn === 'true' || loggedIn === null); // Giả lập đã đăng nhập
+  //   };
+
+  //   checkLoginStatus();
+  // }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     const checkLoginStatus = async () => {
       const loggedIn = await AsyncStorage.getItem('isLoggedIn');
-      setIsLoggedIn(loggedIn === 'true' || loggedIn === null); // Giả lập đã đăng nhập
+      setIsLoggedIn(loggedIn === 'true');
     };
 
     checkLoginStatus();
   }, []);
-  
 
   // ko login 
   // const [isLoggedIn, setIsLoggedIn] = useState(false); // Giả lập chưa đăng nhập

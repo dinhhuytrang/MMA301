@@ -187,16 +187,37 @@
   ],
   "users": [
     {
-      "id": "1",
-      "username": "john_doe",
-      "password": "hashed_password_123",
-      "email": "john@example.com"
+      "id": 1,
+      "username": "user1",
+      "password": "12345",
+      "email": "john@gmail.com",
+      "phoneNumber": "01234546789",
+      "address": "123 Main St",
+      "role": "USER"
     },
     {
-      "id": "2",
-      "username": "jane_doe",
-      "password": "hashed_password_456",
-      "email": "jane@example.com"
+      "id": 2,
+      "username": "admin",
+      "password": "12345",
+      "email": "jane@example.com",
+      "phoneNumber": "09876543210",
+      "address": "456 Elm St",
+      "role": "ADMIN"
+    },
+    {
+      "id": "37a2",
+      "username": "user1",
+      "password": "12345"
+    },
+    {
+      "id": "4cd1",
+      "username": "user1",
+      "password": "12345"
+    },
+    {
+      "id": "6c87",
+      "username": "user1",
+      "password": "12345"
     }
   ],
   "cart": [
@@ -208,51 +229,6 @@
       "quantity": 1,
       "color": "white",
       "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec1e9fa46ec14c638641d8faa606900d_9366/Real_Madrid_24-25_Home_Authentic_Jersey_White_IX8095_HM4.jpg"
-    },
-    {
-      "id": "2",
-      "name": "Manchester United 24/25 Home",
-      "price": "2.200.000",
-      "size": "XL",
-      "color": "Bright Red",
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba2c1b171eaa4b0ea36e2a9aed2c5330_9366/Manchester_United_24-25_Home_Authentic_Jersey_Red_JF1291_HM30.jpg",
-      "quantity": 1
-    },
-    {
-      "id": "3",
-      "name": "Arsenal 24/25 Home Authentic",
-      "price": "2.200.000",
-      "size": "XXXL",
-      "color": "Better Scarlet / White",
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/017bd9fc18c941bc8fbfac62db414c7e_9366/Arsenal_24-25_Home_Jersey_Red_IT6141_HM30.jpg",
-      "quantity": 1
-    },
-    {
-      "id": "5",
-      "name": "Juventus 24/25 Home Jersey",
-      "price": "2.200.00",
-      "size": "XL",
-      "color": "White / Black",
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b38cbf7df9c04f92bb509a7357898535_9366/Juventus_24-25_Home_Jersey_White_IS8002_HM30.jpg",
-      "quantity": 1
-    },
-    {
-      "id": "4",
-      "name": "FC Bayern 24/25 Home",
-      "price": "2.200.00",
-      "size": "XXXL",
-      "color": "Red",
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d80ce170b8ca4456a62bbc45f56eae09_9366/FC_Bayern_24-25_Home_Jersey_Red_IT8511_HM30.jpg",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "name": "Real Madrid Home 2024/2025",
-      "price": "2.200.000",
-      "size": "XXXL",
-      "color": "white",
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e470f0250dba451f92939cba348d488f_9366/Real_Madrid_24-25_Home_Authentic_Jersey_White_IX8095_HM30.jpg",
-      "quantity": 1
     }
   ],
   "favorite": [

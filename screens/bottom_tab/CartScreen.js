@@ -95,7 +95,7 @@ const CartScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.navBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ListProduct')}>
           <Ionicons name="chevron-back-outline" size={30} />
         </TouchableOpacity>
         <Text style={styles.navTitle}>My Cart</Text>
