@@ -18,6 +18,10 @@ import SignInScreen from './screens/auth/signIn'; // Your sign-in screen
 import SignUpScreen from './screens/auth/signUp'; // Your sign-up screen
 import ResetPasswordScreen from './screens/auth/resetPw';
 import VerificationScreen from './screens/auth/verification'; // Your verification screen
+import ShippingScreen from './screens/checkoout_screen/ShipingDetail';
+import PaymentScreen from './screens/checkoout_screen/PaymentMethod';
+import ReviewScreen from './screens/checkoout_screen/Review';
+import SuccessScreen from './screens/checkoout_screen/OderSucces';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -50,6 +54,10 @@ function CartStackScreen() {
   return (
     <CartStack.Navigator screenOptions={{ headerShown: false }}>
       <CartStack.Screen name="Cart" component={CartScreen} />
+      <CartStack.Screen name="Shipping" component={ShippingScreen} />
+      <CartStack.Screen name="Payment" component={PaymentScreen} />
+      <CartStack.Screen name="Review" component={ReviewScreen} />
+      <CartStack.Screen name="Success" component={SuccessScreen} />
     </CartStack.Navigator>
   );
 }
@@ -112,27 +120,27 @@ function AuthStackScreen() {
 
 export default function App() {
   // login oke
-  // const [isLoggedIn, setIsLoggedIn] = useState(true); // Giả lập đã đăng nhập thành công
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Giả lập đã đăng nhập thành công
 
  
-  // useEffect(() => {
-  //   const checkLoginStatus = async () => {
-  //     const loggedIn = await AsyncStorage.getItem('isLoggedIn');
-  //     setIsLoggedIn(loggedIn === 'true' || loggedIn === null); // Giả lập đã đăng nhập
-  //   };
-
-  //   checkLoginStatus();
-  // }, []);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   useEffect(() => {
     const checkLoginStatus = async () => {
       const loggedIn = await AsyncStorage.getItem('isLoggedIn');
-      setIsLoggedIn(loggedIn === 'true');
+      setIsLoggedIn(loggedIn === 'true' || loggedIn === null); // Giả lập đã đăng nhập
     };
 
     checkLoginStatus();
   }, []);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // useEffect(() => {
+  //   const checkLoginStatus = async () => {
+  //     const loggedIn = await AsyncStorage.getItem('isLoggedIn');
+  //     setIsLoggedIn(loggedIn === 'true');
+  //   };
+
+  //   checkLoginStatus();
+  // }, []);
 
   // ko login 
   // const [isLoggedIn, setIsLoggedIn] = useState(false); // Giả lập chưa đăng nhập

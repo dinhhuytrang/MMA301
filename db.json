@@ -187,7 +187,7 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "user1",
       "password": "12345",
       "email": "john@gmail.com",
@@ -196,28 +196,13 @@
       "role": "USER"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "admin",
       "password": "12345",
       "email": "jane@example.com",
       "phoneNumber": "09876543210",
       "address": "456 Elm St",
       "role": "ADMIN"
-    },
-    {
-      "id": "37a2",
-      "username": "user1",
-      "password": "12345"
-    },
-    {
-      "id": "4cd1",
-      "username": "user1",
-      "password": "12345"
-    },
-    {
-      "id": "6c87",
-      "username": "user1",
-      "password": "12345"
     }
   ],
   "cart": [

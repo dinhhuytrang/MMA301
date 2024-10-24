@@ -143,7 +143,7 @@ const CartScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.checkoutButton}>
+      <TouchableOpacity onPress={()=>navigation.navigate("Shipping")} style={styles.checkoutButton}>
         <Text style={styles.checkoutText}>Checkout</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -250,6 +250,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
   },
+  
   applyCouponButton: {
     paddingHorizontal: 10,
   },
@@ -258,7 +259,7 @@ const styles = StyleSheet.create({
     color: 'purple',
   },
   checkoutButton: {
-    backgroundColor: 'purple',
+    backgroundColor: 'black',
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
