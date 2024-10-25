@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-nativ
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 
-const AddAddressScreen = () => {
+const EditAddress = () => {
   const navigation = useNavigation();
   const [street, setStreet] = useState("");
   const [district, setDistrict] = useState("");
@@ -11,21 +11,21 @@ const AddAddressScreen = () => {
   const [commune, setCommune] = useState("");
 
   const handleSave = () => {
-    // Implement save functionality here (e.g., send to server or update state)
+    // Implement save functionality here
     console.log("Address Saved:", { street, district, village, commune });
-    // Navigate back after saving
-    navigation.goBack();
+    // You can navigate back or show a success message after saving
+    navigation.goBack(); // Navigate back to the previous screen
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.profileButton}>
+      <View style={styles.profilebutton}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back-outline" size={30} />
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.title}>Add Address</Text> 
+      <Text style={styles.title}>Edit Address</Text>
 
       <TextInput
         style={styles.input}
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 20,
   },
-  profileButton: {
+  profilebutton: {
     marginTop: 35,
     justifyContent: "flex-start",
   },
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddAddressScreen;
+export default EditAddress;

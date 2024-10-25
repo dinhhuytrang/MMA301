@@ -85,7 +85,7 @@ const CartScreen = () => {
     return (
       <View style={styles.emptyCartContainer}>
         <Text style={styles.emptyCartText}>CART IS EMPTY</Text>
-        <TouchableOpacity style={styles.exploreButton} onPress={() => navigation.navigate('ListProduct')}>
+        <TouchableOpacity style={styles.exploreButton} onPress={() => navigation.goBack()}>
           <Text style={styles.exploreButtonText}>Explore Products</Text>
         </TouchableOpacity>
       </View>
@@ -110,42 +110,46 @@ const CartScreen = () => {
       {cart.length === 0 ? renderEmptyCart() : renderCartItems()}
 
       {/* Summary Section */}
-      <View style={styles.summary}>
-        <Text style={styles.summaryText}>Subtotal</Text>
-        <Text style={styles.summaryText}>{formatCurrency(subtotal)}</Text>
-      </View>
+      {cart.length > 0 && (
+  <>
+    <View style={styles.summary}>
+      <Text style={styles.summaryText}>Subtotal</Text>
+      <Text style={styles.summaryText}>{formatCurrency(subtotal)}</Text>
+    </View>
 
-      <View style={styles.summary}>
-        <Text style={styles.summaryText}>Shipping Cost</Text>
-        <Text style={styles.summaryText}>{formatCurrency(shippingCost)}</Text>
-      </View>
+    <View style={styles.summary}>
+      <Text style={styles.summaryText}>Shipping Cost</Text>
+      <Text style={styles.summaryText}>{formatCurrency(shippingCost)}</Text>
+    </View>
 
-      <View style={styles.summary}>
-        <Text style={styles.summaryText}>Tax</Text>
-        <Text style={styles.summaryText}>{formatCurrency(0)}</Text>
-      </View>
+    <View style={styles.summary}>
+      <Text style={styles.summaryText}>Tax</Text>
+      <Text style={styles.summaryText}>{formatCurrency(0)}</Text>
+    </View>
 
-      <View style={styles.summary}>
-        <Text style={styles.summaryTotalText}>Total</Text>
-        <Text style={styles.summaryTotalText}>{formatCurrency(total)}</Text>
-      </View>
+    <View style={styles.summary}>
+      <Text style={styles.summaryTotalText}>Total</Text>
+      <Text style={styles.summaryTotalText}>{formatCurrency(total)}</Text>
+    </View>
 
-      {/* Coupon input and Checkout button */}
-      <View style={styles.couponContainer}>
-        <TextInput
-          style={styles.couponInput}
-          placeholder="Enter Coupon Code"
-          value={couponCode}
-          onChangeText={setCouponCode}
-        />
-        <TouchableOpacity style={styles.applyCouponButton}>
-          <Text style={styles.applyCouponText}>→</Text>
-        </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity onPress={()=>navigation.navigate("Shipping")} style={styles.checkoutButton}>
-        <Text style={styles.checkoutText}>Checkout</Text>
+    {/* Coupon input and Checkout button */}
+    <View style={styles.couponContainer}>
+      <TextInput
+        style={styles.couponInput}
+        placeholder="Enter Coupon Code"
+        value={couponCode}
+        onChangeText={setCouponCode}
+      />
+      <TouchableOpacity style={styles.applyCouponButton}>
+        <Text style={styles.applyCouponText}>→</Text>
       </TouchableOpacity>
+    </View>
+
+    <TouchableOpacity onPress={()=>navigation.navigate("Shipping")} style={styles.checkoutButton}>
+      <Text style={styles.checkoutText}>Checkout</Text>
+    </TouchableOpacity>
+  </>
+)}
     </ScrollView>
   );
 };

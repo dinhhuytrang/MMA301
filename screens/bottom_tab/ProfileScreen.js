@@ -11,17 +11,17 @@ const ProfileScreen = () => {
   };
 const navigation = useNavigation();
   const menuItems = [
-    { id: '1', title: 'Address', screen: 'AddAddressScreen' }, 
+    { id: '1', title: 'Address', screen: 'MyAddress' }, 
     { id: '2', title: 'Card', screen: 'AddCardScreen' },
     { id: '3', title: 'Payment', screen: 'Payment' },
-    { id: '4', title: 'Help', screen: 'Help' },
+    { id: '4', title: 'Order History', screen: 'History' },
     { id: '5', title: 'Support', screen: 'Support' },
   ];
   
   const renderMenuItem = ({ item }) => (
     <TouchableOpacity
       style={styles.menuItem}
-      onPress={() => navigation.navigate(item.screen)} // Navigate to the appropriate screen
+      onPress={() => navigation.navigate(item.screen)} 
     >
       <Text style={styles.menuItemText}>{item.title}</Text>
       <Text style={styles.arrow}>›</Text>

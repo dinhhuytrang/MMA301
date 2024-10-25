@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, Image, FlatList, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getAllListProduct, getAllClub } from '../../services/ListProductAPI';
 const chunkArray = (array, chunkSize) => {
   const result = [];
@@ -52,7 +52,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.header}>
         <Text style={styles.welcomeText}>Hello Trang,</Text>
         <Text style={styles.welcomeSubText}>Welcome</Text>
-        <TouchableOpacity style={styles.cartIcon}>
+        <TouchableOpacity onPress={()=> navigation.navigate("Cart")} style={styles.cartIcon}>
           <Icon name="shopping-cart" size={24} color="#333" />
         </TouchableOpacity>
       </View>

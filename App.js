@@ -22,6 +22,9 @@ import ShippingScreen from './screens/checkoout_screen/ShipingDetail';
 import PaymentScreen from './screens/checkoout_screen/PaymentMethod';
 import ReviewScreen from './screens/checkoout_screen/Review';
 import SuccessScreen from './screens/checkoout_screen/OderSucces';
+import OrderHistoryScreen from './screens/profile_screens/OrderHistory';
+import MyAddress from './screens/profile_screens/Address_List';
+import EditAddress from './screens/profile_screens/Edit Address';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -67,9 +70,12 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
       <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+      <ProfileStack.Screen name="MyAddress" component={MyAddress} />
+      <ProfileStack.Screen name="EditAddress" component={EditAddress} />
       <ProfileStack.Screen name="AddAddressScreen" component={AddAddressScreen} />
       <ProfileStack.Screen name="AddCardScreen" component={AddCardScreen} />
       <ProfileStack.Screen name="EditProfile" component={EditProfile} />
+      <ProfileStack.Screen name="History" component={OrderHistoryScreen} />
     </ProfileStack.Navigator>
   );
 }
